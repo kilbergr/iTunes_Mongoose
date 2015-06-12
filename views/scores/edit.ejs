@@ -1,0 +1,9 @@
+<% include ../partials/header %>
+<form action="/scores" method="post">
+	<label>User Name:
+	<input type="text" name="score[name]" value="<%= score.name %>"></label>
+	<label>Score:
+	<input type="text" name="score[score]" value="<%= score.score %>"></label>
+	<input type="submit" value="Submit">
+</form>
+<% include ../partials/footer %>

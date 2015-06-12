@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+<table>
+	<thead>
+		<tr>
+			<th>Recordholder</th>
+			<th>Score</th>
+		</tr>
+	</thead>
+	<tbody>
+	<%scores.forEach(function(score){ %>
+		<tr>
+			<td><%= score.name %></td>
+			<td><%= score.score %></td>
+		</tr>
+		<% }) %>
+	</tbody>
+</table>
+<% include ../partials/footer %>
