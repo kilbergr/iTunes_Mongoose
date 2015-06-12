@@ -12,6 +12,10 @@ app.use(morgan('tiny'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended:true}));
 
+//root
+app.get("/", function(req, res){
+	res.redirect("/scores")
+})
 //index
 app.get("/scores", function(req, res) {
 	db.Score.find({}, function(err, scores){
@@ -24,6 +28,11 @@ app.get("/scores", function(req, res) {
 	})
 });
 
+//new
+app.get("/scores/new", function(req, res){
+	res.render('scores/new')
+})
+
 //create
 app.post("/scores", function(req, res){
 	db.Score.create(req.body.score, function(err){
@@ -31,18 +40,25 @@ app.post("/scores", function(req, res){
 			res.render('errors/500')
 		}
 		else{
-			res.redirect('scores/index');
+			res.redirect('/scores');
 		}
 	})
 });
 
-//new
-app.get("/scores/new", function(req, res){
-	res.render('scores/new')
-})
 
 //randomsong
-//app.get("/scores/")
+app.get("/scores/randomsong", function(req, res){
+	var url = "https://itunes.apple.com/lookup?id=" + "376116617";
+	request(url, function(error, response, body){
+		if(error){
+			res.render('errors/500')
+		}
+		else if(!error && response.status===200){
+			songs = JSON.parse(body);
+			res.render('scores/randomsong');
+		}
+	})
+})
 
 //show
 app.get('/scores/:id', function(req, res){
@@ -75,7 +91,7 @@ app.put("/scores/:id", function(req, res){
 			res.render('errors/500')
 		}
 		else{
-			res.redirect('scores/index', {scores, scores})
+			res.redirect('/scores', {scores: scores})
 		}
 	})
 });
@@ -87,10 +103,11 @@ app.delete("/scores/:id", function(req, res){
 			res.render('errors/500');
 		}
 		else{
-			res/redirect('scores/index');
+			res.redirect('/scores');
 		}
 	})
 });
+
 
 
 

@@ -3,16 +3,26 @@
 	<thead>
 		<tr>
 			<th>Recordholder</th>
-			<th>Score</th>
+			<th>Score </th>
+			<th>Date Scored</th>
+			<th>Edit?</th>
+			<th>Delete?</th>
 		</tr>
 	</thead>
 	<tbody>
-	<%scores.forEach(function(score){ %>
+	<% scores.forEach(function(score){ %>
 		<tr>
-			<td><%= score.name %></td>
-			<td><%= score.score %></td>
+			<td><a href="/scores/<%= score.id %>"><%= score.player %></td>
+			<td><%= score.highScore %></td>
+			<td><%= score.date %></td>
+			<td><a href="/scores/<%= score.id %>/edit">Edit</a></td>
+			<td>
+				<form action='/scores/<%= score.id %>?_method=DELETE' method="POST"><input class="sub" type="submit" value="X">
+        </form>
+			</td>
 		</tr>
 		<% }) %>
 	</tbody>
 </table>
+<a href="/scores/new"><button>Add A Score</button></a>
 <% include ../partials/footer %>

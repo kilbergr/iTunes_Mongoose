@@ -1,3 +1,4 @@
 <% include ../partials/header %>
-<p>Hi <%= score[name] %>, your score is <%= score[score] %></p>
+<p><%= score.player %> scored a highscore of <%= score.highScore %> scored on <%= score.date %></p>
+<a href="/scores"><button>Return Home</button></a>
 <% include ../partials/footer %>
