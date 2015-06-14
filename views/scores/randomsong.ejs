@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+<body>
+	<div>
+		<form id="songID">
+			<label for="nameSong">
+				<h3>Name this song (enter songwriter, title, or album):</h3><input class="songinput" type="text">
+			</label>
+		</form>
+		<audio id="audio_id" src="<%= song.previewUrl %>"></audio>
+	</div>
+	<div id="solution" visibility="hidden">
+		<p id="songSolution">Song: <%= song.trackName %>; Artist: <%= song.artistName %>; Album: <%= song.collectionName %></p>
+		<img id="coverArt" src="<%= song.artworkUrl100 %>">
+	</div>
+	<div>
+		<p id="correct">HECK YEAH!</p>
+		<p id="incorrect">Looks like you don't know shit</p>
+		</div>
+	<div id="board">
+	<h2>Scoreboard</h2>
+	<table>
+		<thead>
+			<th>Wins</th>
+			<th>Loses</th>
+		</thead>
+			<tr>
+				<td id="wins"></td>
+				<td id="loses"></td>
+			</tr>
+			</table>
+	</div>
+	<div>
+<a href="/scores"><button>Return Home</button></a>
+<a href="/scores"><button>Check High Scores</button></a>
+</div>
+	
+</div>
+<% include ../partials/footer %>

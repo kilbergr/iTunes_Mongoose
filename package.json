@@ -23,6 +23,7 @@
     "method-override": "^2.3.3",
     "mongoose": "^4.0.5",
     "morgan": "^1.5.3",
+    "nodeQuery": "0.0.9-1",
     "request": "^2.57.0"
   }
 }

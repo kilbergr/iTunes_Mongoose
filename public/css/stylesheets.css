@@ -1,0 +1,64 @@
+#solution{
+	visibility: hidden;
+}
+
+body{
+	background: url(https://d2d00szk9na1qq.cloudfront.net/Product/218c0f3c-4568-44c5-bf26-2566a5f2b094/Images/Large_FU-317.jpg);
+	text-align: center;
+	font-family: Monoton;
+	font-size: 32px;
+}
+
+#correct{
+	visibility: hidden;
+	font-family: Monoton;
+}
+
+#incorrect{
+	visibility: hidden;
+	font-family: Monoton;
+}
+
+h2{
+	font-family: Monoton;
+	font-size: 24px; 
+}
+
+h3{
+	font-family: Monoton;
+	font-size: 28px; 
+}
+
+#board{
+	border: 3px double red;
+	display: inline-block;
+	padding: 10px;
+	text-align: center;
+}
+
+th{
+	text-align: center;
+	margin:25px;
+	padding-left: 25px;
+	font-family: Monoton;
+}
+
+button{
+	padding: 10px;
+	margin: 10px;
+	border-radius: 3px;
+	background-color: #F5C022;
+
+}
+
+#loss{
+	float:right;
+	margin: 5%;
+	display:none;
+}
+
+#win{
+	float:right;
+	margin: 5%;
+	display:none;
+}

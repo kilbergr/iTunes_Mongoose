@@ -1,10 +1,11 @@
 <% include ../partials/header %>
-<form action="/scores" method="post">
+<form action="/scores/<%= score.id %>?_method=PUT" method="post">
 	<label>User Name:
-	<input type="text" name="score[name]" value="<%= score.name %>"></label>
+	<input type="text" name="score[player]" value="<%= score.player %>"></label>
 	<label>Score:
-	<input type="text" name="score[score]" value="<%= score.score %>"></label>
+	<input type="text" name="score[highScore]" value="<%= score.highScore %>"></label>
+	<input type="text" name="score[date]" value="<%= score.date %>"></label>
 	<input type="submit" value="Submit">
 </form>
-<a href="/scores"><button>Return Home</button></a>
+<a href="/scores"><button>Check High Scores</button></a>
 <% include ../partials/footer %>
