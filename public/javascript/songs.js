@@ -17,14 +17,16 @@ $(function() {
 	}
 	var guess = function(){
 		$("#songID").on("submit", function(event){
-			event.preventDefault();
+			//event.preventDefault();
 			var guess = $("input.songinput")[0].value;
 			var album = $("#albumName")[0].innerHTML;
 			var artist = $("#artistName")[0].innerHTML;
 			var track = $("#songName")[0].innerHTML;
+			$("#addname").val($("#userID")[0][0].value);
 
 			if(guess === album || guess === artist  || guess === track){
 				wins++;
+				$("#addscore").val(wins);
 				$("#correct").css("visibility", "visible");
 				$("#win").css("display", "inline");
 				$("#incorrect").css("visibility", "hidden");
@@ -40,6 +42,7 @@ $(function() {
 			}
 			else {
 				losses++;
+				$("#addscore").val(losses);
 				$("#incorrect").css("visibility", "visible");
 				$("#loss").css("display", "inline");
 				$("#correct").css("visibility", "hidden");
@@ -53,15 +56,13 @@ $(function() {
 				$("h2").css("color", "white");		
 				$("td").css("color", "white");	
 			}
-
 			$("#wins").html(wins);
 			$("#losses").html(losses);
-		//	$("#songSolution").html("<b>Song</b>: " + song.trackName + ", <b>Artist</b>: " + song.artistName + ", <b>Album</b>: " + song.collectionName);
 			$("#solution").css("visibility", "visible");
-			scoring();
+			addScore();
 		})
 	}
-	var scoring = function(){
+	var addScore = function(){
 		console.log($("#userinput")[0]);
 	}
 
