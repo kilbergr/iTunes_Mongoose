@@ -1,19 +1,19 @@
 <% include ../partials/header %>
 <body>
 	<div>
-		<form id="songID">
+		<form id="songID" action="POST" method="POST">
 			<label for="nameSong">
 				<h3>Name this song (enter songwriter, title, or album):</h3>
 				<input class="songinput" type="text">
 			</label>
-			<button id="guess">Guess</button>
+			<input type="submit" value="Guess">
 		</form>
 		<audio id="audio_id" src="<%= song.previewUrl %>"></audio>
 	</div>
 	<div id="solution" visibility="hidden">
-		<p id="songName">Song: <%= song.trackName %></p>
-		<p id="artistName">Artist: <%= song.artistName %></p>
-		<p id = "albumName">Album: <%= song.collectionName %></p>
+		<p id="songName"><%= song.trackName %></p>
+		<p id="artistName"><%= song.artistName %></p>
+		<p id = "albumName"><%= song.collectionName %></p>
 		<img id="coverArt" src="<%= song.artworkUrl100 %>">
 	</div>
 	<div>
