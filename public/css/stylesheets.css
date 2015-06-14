@@ -1,6 +1,3 @@
-#solution{
-	visibility: hidden;
-}
 
 body{
 	background: url(https://d2d00szk9na1qq.cloudfront.net/Product/218c0f3c-4568-44c5-bf26-2566a5f2b094/Images/Large_FU-317.jpg);
@@ -14,6 +11,11 @@ body{
 }
 
 #incorrect{
+	visibility: hidden;
+	font-family: Monoton;
+}
+
+#solution{
 	visibility: hidden;
 	font-family: Monoton;
 }
@@ -47,13 +49,15 @@ button{
 	margin: 10px;
 	border-radius: 3px;
 	background-color: #F5C022;
+	font-family: Monoton;
 
 }
-submit{
+.submit {
 	padding: 10px;
 	margin: 10px;
 	border-radius: 3px;
 	background-color: #F5C022;
+	font-family: Monoton;
 
 }
 

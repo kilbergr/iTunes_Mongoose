@@ -1,12 +1,19 @@
 <% include ../partials/header %>
 <body>
 	<div>
+	<form action="/randomsong" id="userID">
+		<label for="user">User name: 
+			<input type="text" name="user" id="username">
+		</label>
+		<input type="submit" value="Submit" class="submit">
+	</form>
+
 		<form id="songID" action="POST" method="POST">
 			<label for="nameSong">
 				<h3>Name this song (enter songwriter, title, or album):</h3>
 				<input class="songinput" type="text">
 			</label>
-			<input type="submit" value="Guess">
+			<input type="submit" class="submit" value="Guess">
 		</form>
 		<audio id="audio_id" src="<%= song.previewUrl %>"></audio>
 	</div>
@@ -33,7 +40,10 @@
 			</tr>
 			</table>
 	</div>
-	<div>
+	<div id="reset">
+<a href="/scores"><button>Play Again</button></a>
+</div>
+<div>
 <a href="/scores"><button>Return Home</button></a>
 <a href="/scores"><button>Check High Scores</button></a>
 </div>

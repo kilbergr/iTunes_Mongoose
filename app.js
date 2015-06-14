@@ -136,5 +136,5 @@ app.delete("/scores/:id", function(req, res){
 });
 
 app.listen(3000, function() {
-  console.log("You started the server on port 3000, well done!");
+  console.log("started the server on port 3000");
 });

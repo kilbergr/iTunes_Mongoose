@@ -7,6 +7,19 @@ $(function() {
  	 		})
 		}
 
+	var identify = function(){
+		$("#userID").on('submit', function(event){
+			event.preventDefault();
+			var user = $("#userID")[0][0].value;
+			if(user){
+				playIt();
+			}
+			else{
+				alert("Please enter your name");
+	 		}
+		})
+
+	}
 	var guess = function(){
 		$("#songID").on("submit", function(event){
 			event.preventDefault();
@@ -53,8 +66,17 @@ $(function() {
 			
 		})
 	}
-		playIt();
+
+	// var resetIt = function(){
+	// 	$("#reset").on("click", function{
+
+	// 	})
+	// }
+
+		identify();
+		
 		guess();
+		//resetIt();
 
 });
 
