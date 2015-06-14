@@ -78,7 +78,6 @@ app.get("/randomsong", function(req, res){
 		}
 		else if(!error && response.statusCode ===200){
 			song = JSON.parse(body).results[0];
-			//play(song);
 			res.render('scores/randomsong');
 		}
 		else{

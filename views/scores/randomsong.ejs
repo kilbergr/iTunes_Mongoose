@@ -3,13 +3,17 @@
 	<div>
 		<form id="songID">
 			<label for="nameSong">
-				<h3>Name this song (enter songwriter, title, or album):</h3><input class="songinput" type="text">
+				<h3>Name this song (enter songwriter, title, or album):</h3>
+				<input class="songinput" type="text">
 			</label>
+			<button id="guess">Guess</button>
 		</form>
 		<audio id="audio_id" src="<%= song.previewUrl %>"></audio>
 	</div>
 	<div id="solution" visibility="hidden">
-		<p id="songSolution">Song: <%= song.trackName %>; Artist: <%= song.artistName %>; Album: <%= song.collectionName %></p>
+		<p id="songName">Song: <%= song.trackName %></p>
+		<p id="artistName">Artist: <%= song.artistName %></p>
+		<p id = "albumName">Album: <%= song.collectionName %></p>
 		<img id="coverArt" src="<%= song.artworkUrl100 %>">
 	</div>
 	<div>
@@ -21,11 +25,11 @@
 	<table>
 		<thead>
 			<th>Wins</th>
-			<th>Loses</th>
+			<th>Losses</th>
 		</thead>
 			<tr>
 				<td id="wins"></td>
-				<td id="loses"></td>
+				<td id="losses"></td>
 			</tr>
 			</table>
 	</div>
