@@ -10,6 +10,11 @@ body{
 	font-family: Monoton;
 }
 
+#songID{
+	visibility: hidden;
+	font-family: Monoton;
+}
+
 #incorrect{
 	visibility: hidden;
 	font-family: Monoton;

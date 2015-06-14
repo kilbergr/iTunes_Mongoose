@@ -3,7 +3,7 @@
 	<div>
 	<form action="/randomsong" id="userID">
 		<label for="user">User name: 
-			<input type="text" name="user" id="username">
+			<input type="text" name="user" id="username" autofocus>
 		</label>
 		<input type="submit" value="Submit" class="submit">
 	</form>
@@ -41,12 +41,15 @@
 			</table>
 	</div>
 	<div id="reset">
-<a href="/scores"><button>Play Again</button></a>
+<a href="/randomsong"><button>Play Again</button></a>
 </div>
 <div>
 <a href="/scores"><button>Return Home</button></a>
 <a href="/scores"><button>Check High Scores</button></a>
 </div>
-	
+<div id="userinput" action="/songs" method="POST">
+	<input type="hidden" name="score[name]">Rebecca
+	<input type="hidden" name="score[score]">
+	<input type="hidden" nextsong=true>
 </div>
 <% include ../partials/footer %>

@@ -1,24 +1,19 @@
 $(function() {
   var wins = 0, 
   losses = 0;
-  var playIt = function(){
-  	$("#audio_id").on("canplay", function(){
-  		$("#audio_id")[0].play();
- 	 		})
-		}
 
 	var identify = function(){
 		$("#userID").on('submit', function(event){
 			event.preventDefault();
 			var user = $("#userID")[0][0].value;
 			if(user){
-				playIt();
+				$("#songID").css("visibility", "visible");
+				$("#audio_id")[0].play();
 			}
 			else{
 				alert("Please enter your name");
 	 		}
 		})
-
 	}
 	var guess = function(){
 		$("#songID").on("submit", function(event){
@@ -63,8 +58,11 @@ $(function() {
 			$("#losses").html(losses);
 		//	$("#songSolution").html("<b>Song</b>: " + song.trackName + ", <b>Artist</b>: " + song.artistName + ", <b>Album</b>: " + song.collectionName);
 			$("#solution").css("visibility", "visible");
-			
+			scoring();
 		})
+	}
+	var scoring = function(){
+		console.log($("#userinput")[0]);
 	}
 
 	// var resetIt = function(){
@@ -74,8 +72,8 @@ $(function() {
 	// }
 
 		identify();
-		
 		guess();
+
 		//resetIt();
 
 });
