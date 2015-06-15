@@ -30,7 +30,7 @@ $(function() {
 				wins++;
 				
 				$("#addscore").val(1);
-				$("#adddate").val(triumphDate);
+				//$("#adddate").val(triumphDate);
 				$("#correct").css("visibility", "visible");
 				$("#win").css("display", "inline");
 				$("#incorrect").css("visibility", "hidden");
