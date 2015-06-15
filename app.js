@@ -49,19 +49,18 @@ app.get("/scores/new", function(req, res){
 
 //create
 app.post("/scores", function(req, res){
-	db.Score.create(req.body.score, function(err){
+	db.Score.create(req.body.score, function(err, score){
 		if(err){
 			res.render('errors/500')
 		}
 		//BELOW: NOT YET WORKING SO COMMENTED OUT FOR THE APPEARANCE OF PROGRESS' SAKE
-		//else if(req.body.nextsong){
-		////	console.log(req.params);
-		////not the right way to access the id etc--stuck on #7.i
-		//	res.redirect("/randomsong?id=" + req.body.id + "&name=" + req.body.name + "&score=" + req.body.score);
-	//	}
+		 else if(req.body.nextsong){
+		// //	console.log(req.params);
+		// //not the right way to access the id etc--stuck on #7.i
+			res.redirect("/randomsong?id=" + score.id + "&name=" + score.player + "&score=" + score.highScore);
+		}
 		else{
 			res.redirect('/scores');
-			console.log(req.body.nextsong);
 		}
 	})
 });
@@ -77,7 +76,10 @@ app.get("/randomsong", function(req, res){
 		}
 		else if(!error && response.statusCode ===200){
 			song = JSON.parse(body).results[0];
-			res.render('scores/randomsong');
+			var scoreData = {id: req.query.id, name:req.query.name, score:req.query.score};
+			var data = {song:song, score:scoreData};
+			res.render('scores/randomsong', data);
+
 		}
 		else{
 			res.send(response.statusCode + "");
