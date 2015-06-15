@@ -5,7 +5,7 @@
 		<label for="user">User name: 
 			<input type="text" name="user" id="username" autofocus>
 		</label>
-		<input type="submit" value="Submit" class="submit">
+		<input type="submit" value="Submit" class="submit" autofocus>
 	</form>
 
 		<form id="songID" action="/scores" method="POST">
@@ -13,9 +13,12 @@
 				<h3>Name this song (enter songwriter, title, or album):</h3>
 				<input class="songinput" type="text">
 			</label>
+
 			<input id="addname" type="hidden" name="score[player]">
 			<input id="addscore" type="hidden" name="score[highScore]">
+			<input id="adddate" type="hidden" name="score[date]">
 			<input type='hidden' name='nextsong' value=true>
+
 			<input type="submit" class="submit" value="Guess">
 		</form>
 		<audio id="audio_id" src="<%= song.previewUrl %>"></audio>
@@ -50,4 +53,5 @@
 <a href="/scores"><button>Return Home</button></a>
 <a href="/scores"><button>Check High Scores</button></a>
 </div>
+
 <% include ../partials/footer %>

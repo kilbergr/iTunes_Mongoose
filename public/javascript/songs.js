@@ -18,6 +18,8 @@ $(function() {
 	var guess = function(){
 		$("#songID").on("submit", function(event){
 			//event.preventDefault();
+			var date = new Date();
+			var triumphDate = (date.getMonth() + 1) + "/" + date.getDate() + "/" + date.getFullYear().toString().substr(2,2);
 			var guess = $("input.songinput")[0].value;
 			var album = $("#albumName")[0].innerHTML;
 			var artist = $("#artistName")[0].innerHTML;
@@ -26,7 +28,9 @@ $(function() {
 
 			if(guess === album || guess === artist  || guess === track){
 				wins++;
-				$("#addscore").val(wins);
+				
+				$("#addscore").val(1);
+				$("#adddate").val(triumphDate);
 				$("#correct").css("visibility", "visible");
 				$("#win").css("display", "inline");
 				$("#incorrect").css("visibility", "hidden");
@@ -42,7 +46,9 @@ $(function() {
 			}
 			else {
 				losses++;
-				$("#addscore").val(losses);
+				$("#addscore").val(0);
+
+			//$("#adddate").val(triumphDate);
 				$("#incorrect").css("visibility", "visible");
 				$("#loss").css("display", "inline");
 				$("#correct").css("visibility", "hidden");

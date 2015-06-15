@@ -60,8 +60,13 @@ app.post("/scores", function(req, res){
 		if(err){
 			res.render('errors/500')
 		}
+		else if(req.body.nextsong){
+		//	console.log(req.params);
+			res.redirect("/randomsong?id=" + req.body.id + "&name=" + req.body.name + "&score=" + req.body.score);
+		}
 		else{
 			res.redirect('/scores');
+			console.log(req.body.nextsong);
 		}
 	})
 });
