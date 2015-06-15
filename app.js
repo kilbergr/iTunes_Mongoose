@@ -24,19 +24,12 @@ var songIds = ["995535015", "966411602", "823593456", "956689796", "943946671",
 var playGuess = function(){
 	return Math.floor(Math.random()*songIds.length);
 	};
-// var play = function(song){
-// 	var audio = document.getElementById("audio_id");
-// 	audio.src="song.previewURL";
-// 	audio.oncanplay = function() {
-// 		console.log("audio can play");
-//   	audio.play();
-//    }
-// }
 
 //root
 app.get("/", function(req, res){
 	res.redirect("/scores")
 })
+
 //index
 app.get("/scores", function(req, res) {
 	db.Score.find({}, function(err, scores){
@@ -62,6 +55,7 @@ app.post("/scores", function(req, res){
 		}
 		else if(req.body.nextsong){
 		//	console.log(req.params);
+		//not the right way to access the id etc--stuck on #7.i
 			res.redirect("/randomsong?id=" + req.body.id + "&name=" + req.body.name + "&score=" + req.body.score);
 		}
 		else{
@@ -70,7 +64,6 @@ app.post("/scores", function(req, res){
 		}
 	})
 });
-
 
 
 //randomsong
